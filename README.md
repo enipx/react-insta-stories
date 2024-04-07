@@ -9,12 +9,14 @@
 
 <br>
 
-<img height="600" src="https://i.imgur.com/Y1s8FKb.png" alt="Demo screenshot"/>
+<div align="center">
+<img height="600" style="margin: auto" src="https://i.imgur.com/Y1s8FKb.png" alt="Demo screenshot"/>
+</div>
 
 ## Install
 
 ```bash
-npm install --save react-insta-stories
+yarn add @enipxreact-insta-stories
 ```
 
 ## Demo
