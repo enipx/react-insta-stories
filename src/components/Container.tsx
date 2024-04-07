@@ -33,6 +33,9 @@ export default function () {
     onPrevious,
     onNext,
     preloadCount,
+    nextDivStyles,
+    previousDivStyles,
+    pauseDivStyles,
   } = useContext<GlobalCtx>(GlobalContext);
   const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
@@ -179,14 +182,22 @@ export default function () {
       {!preventDefault && (
         <div style={styles.overlay}>
           <div
-            style={{ width: "50%", zIndex: 999 }}
+            style={{ width: pauseDivStyles ? "33%" : "50%", zIndex: 999, ...(previousDivStyles || {}) }}
             onTouchStart={debouncePause}
             onTouchEnd={mouseUp("previous")}
             onMouseDown={debouncePause}
             onMouseUp={mouseUp("previous")}
           />
+          { pauseDivStyles && (
+            <div
+              style={{ flex: 1, zIndex: 999, ...pauseDivStyles }}
+              onClick={() => {
+                toggleState(pause ? "play" : "pause")
+              }}
+            />
+          ) }
           <div
-            style={{ width: "50%", zIndex: 999 }}
+            style={{ width: pauseDivStyles ? "33%" : "50%", zIndex: 999, ...(nextDivStyles || {}) }}
             onTouchStart={debouncePause}
             onTouchEnd={mouseUp("next")}
             onMouseDown={debouncePause}
@@ -211,5 +222,6 @@ const styles = {
     height: "inherit",
     width: "inherit",
     display: "flex",
+    justifyContent: "space-between",
   },
 };

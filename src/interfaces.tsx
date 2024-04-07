@@ -6,12 +6,15 @@ export interface ReactInstaStoriesProps {
   height?: NumberOrString;
   loader?: JSX.Element;
   header?: Function;
-  storyContainerStyles?: Record<string, any>;
-  storyInnerContainerStyles?: Record<string, any>;
-  storyStyles?: Object;
-  progressContainerStyles?: Object;
-  progressWrapperStyles?: Object;
-  progressStyles?: Object;
+  storyContainerStyles?: React.CSSProperties;
+  storyInnerContainerStyles?: React.CSSProperties;
+  storyStyles?: React.CSSProperties;
+  progressContainerStyles?: React.CSSProperties;
+  progressWrapperStyles?: React.CSSProperties;
+  progressStyles?: React.CSSProperties;
+  nextDivStyles?: React.CSSProperties;
+  previousDivStyles?: React.CSSProperties;
+  pauseDivStyles?: React.CSSProperties;
   loop?: boolean;
   defaultInterval?: number;
   isPaused?: boolean;
@@ -30,34 +33,7 @@ export interface ReactInstaStoriesProps {
   preloadCount?: number;
 }
 
-export interface GlobalCtx {
-  width?: NumberOrString;
-  height?: NumberOrString;
-  loader?: JSX.Element;
-  header?: Function;
-  storyContainerStyles?: Record<string, any>;
-  storyInnerContainerStyles?: Record<string, any>;
-  storyStyles?: Object;
-  progressContainerStyles?: Object;
-  progressWrapperStyles?: Object;
-  progressStyles?: Object;
-  loop?: boolean;
-  defaultInterval?: number;
-  isPaused?: boolean;
-  currentIndex?: number;
-  renderers?: {
-    renderer: Renderer;
-    tester: Tester;
-  }[];
-  onAllStoriesEnd?: Function;
-  onStoryStart?: Function;
-  onStoryEnd?: Function;
-  onPrevious?: Function;
-  onNext?: Function;
-  keyboardNavigation?: boolean;
-  preventDefault?: boolean;
-  preloadCount?: number;
-}
+export interface GlobalCtx extends Omit<ReactInstaStoriesProps, "stories"> {}
 
 type NumberOrString = number | string;
 

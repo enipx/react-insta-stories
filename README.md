@@ -1,7 +1,7 @@
 ![Main image](https://i.imgur.com/OAL12S5.jpg)
 
 <h1 style="margin: 0" align="center">react-insta-stories</h1>
-<p align="center">A React component for Instagram like stories</p>
+<p align="center">A React component for Instagram like stories with a few modification to work for me</p>
 
 <p align="center"><a href="https://mohitk05.github.io/react-insta-stories/">Homepage</a> • <a href="https://discord.gg/CBUC5c3">Discord</a></p>
 
