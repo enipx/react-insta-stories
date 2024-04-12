@@ -133,7 +133,7 @@ export default function () {
   };
 
   const debouncePause = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
+    e?.preventDefault?.();
     mousedownId.current = setTimeout(() => {
       toggleState("pause");
     }, 200);
@@ -141,10 +141,15 @@ export default function () {
 
   const mouseUp =
     (type: string) => (e: React.MouseEvent | React.TouchEvent) => {
-      e.preventDefault();
+      e?.preventDefault?.();
       mousedownId.current && clearTimeout(mousedownId.current);
       if (pause) {
         toggleState("play");
+
+        // if last story, go to previous
+        if (currentId === stories.length - 1) {
+          previous();
+        }
       } else {
         type === "next" ? next({ isSkippedByUser: true }) : previous();
       }
