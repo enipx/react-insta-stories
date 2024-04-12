@@ -15,6 +15,7 @@ export interface ReactInstaStoriesProps {
   nextDivStyles?: React.CSSProperties;
   previousDivStyles?: React.CSSProperties;
   pauseDivStyles?: React.CSSProperties;
+  overlayStyles?: React.CSSProperties;
   loop?: boolean;
   defaultInterval?: number;
   isPaused?: boolean;

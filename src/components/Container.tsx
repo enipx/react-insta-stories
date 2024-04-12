@@ -36,6 +36,7 @@ export default function () {
     nextDivStyles,
     previousDivStyles,
     pauseDivStyles,
+    overlayStyles,
   } = useContext<GlobalCtx>(GlobalContext);
   const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
@@ -180,7 +181,7 @@ export default function () {
         getVideoDuration={getVideoDuration}
       />
       {!preventDefault && (
-        <div style={styles.overlay}>
+        <div style={{...styles.overlay, ...(overlayStyles || {})}}>
           <div
             style={{ width: pauseDivStyles ? "33%" : "50%", zIndex: 999, ...(previousDivStyles || {}) }}
             onTouchStart={debouncePause}

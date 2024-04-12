@@ -36,6 +36,7 @@ const ReactInstaStories = function (props: ReactInstaStoriesProps) {
         previousDivStyles: props.previousDivStyles,
         nextDivStyles: props.nextDivStyles,
         pauseDivStyles: props.pauseDivStyles,
+        overlayStyles: props.overlayStyles,
     }
     const [stories, setStories] = useState<{ stories: Story[] }>({ stories: generateStories(props.stories, renderers) });
 
