@@ -147,7 +147,7 @@ export default function () {
         toggleState("play");
 
         // if last story, go to previous
-        if (currentId === stories.length - 1) {
+        if (currentId === stories.length - 1 && type === "previous") {
           previous();
         }
       } else {
