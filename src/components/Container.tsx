@@ -40,6 +40,8 @@ export default function () {
   } = useContext<GlobalCtx>(GlobalContext);
   const { stories } = useContext<StoriesContextInterface>(StoriesContext);
 
+  const isLastStory = currentId === stories.length - 1;
+
   usePreLoader(stories, currentId, preloadCount);
 
   useEffect(() => {
@@ -147,7 +149,7 @@ export default function () {
         toggleState("play");
 
         // if last story, go to previous
-        if (currentId === stories.length - 1 && type === "previous") {
+        if (isLastStory && type === "previous") {
           previous();
         }
       } else {
@@ -188,7 +190,7 @@ export default function () {
       {!preventDefault && (
         <div style={{...styles.overlay, ...(overlayStyles || {})}}>
           <div
-            style={{ width: pauseDivStyles ? "33%" : "50%", zIndex: 999, ...(previousDivStyles || {}) }}
+            style={{ width: isLastStory ? "15%" : pauseDivStyles ? "33%" : "50%", zIndex: 999, ...(previousDivStyles || {}) }}
             onTouchStart={debouncePause}
             onTouchEnd={mouseUp("previous")}
             onMouseDown={debouncePause}
